@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ankith Hiremath | Strategy Research</title>
+
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --text: #171717;
+      --muted: #666;
+      --card: #ffffff;
+      --line: #dedbd2;
+      --accent: #1f3d2b;
+      --accent-light: #dfe8dd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(247, 245, 240, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 110px 0 80px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      max-width: 1000px;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 650;
+      border: 1px solid var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: white;
+    }
+
+    .button.secondary:hover {
+      background: var(--text);
+      color: white;
+    }
+
+    section {
+      padding: 80px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 32px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .section-header p {
+      max-width: 440px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    }
+
+    .tag {
+      display: inline-block;
+      width: fit-content;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .card-footer {
+      margin-top: 28px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 1.25rem;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .profile-card {
+      background: var(--text);
+      color: white;
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .profile-card h3 {
+      font-size: 1.6rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .profile-card p {
+      color: #d6d6d6;
+      margin-bottom: 22px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-links a {
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      width: fit-content;
+    }
+
+    footer {
+      padding: 40px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .grid,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .hero {
+        padding: 80px 0 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Ankith Hiremath</a>
+
+        <div class="nav-links">
+          <a href="#newsletter">Newsletter</a>
+          <a href="#strategy">Strategy Series</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Strategy · Emerging Technology · Insurance</div>
+
+        <h1>Research at the edge of markets, technology, and enterprise strategy.</h1>
+
+        <p>
+          Independent strategy research on the forces reshaping insurance,
+          mobility, distribution, and financial services — written for operators,
+          strategists, and curious leaders.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#strategy" class="button primary">Explore Research</a>
+          <a href="#newsletter" class="button secondary">Read Newsletter</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <div class="container">
+        <div class="section-header">
+          <h2>Newsletter</h2>
+          <p>
+            Concise notes on emerging trends, strategic signals, and what they
+            could mean for incumbents, challengers, and investors.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div>
+              <span class="tag">Coming Soon</span>
+              <h3>How AI Agents Could Reshape Insurance Distribution</h3>
+              <p>
+                A look at how search, comparison, and purchase journeys may shift
+                as consumers rely more on AI agents.
+              </p>
+            </div>
+            <div class="card-footer">Read essay →</div>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="tag">Market Signals</span>
+              <h3>The Strategic Value of Mobility Intelligence</h3>
+              <p>
+                Why mobility data may become a critical layer for public sector,
+                insurance, retail, and urban planning decisions.
+              </p>
+            </div>
+            <div class="card-footer">Read essay →</div>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="tag">Technology</span>
+              <h3>Quantum Computing and Financial Services</h3>
+              <p>
+                Separating hype from practical strategic implications across risk,
+                optimization, simulation, and security.
+              </p>
+            </div>
+            <div class="card-footer">Read essay →</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategy">
+      <div class="container">
+        <div class="section-header">
+          <h2>Strategy Series</h2>
+          <p>
+            Longer-form research briefs, market maps, and strategic theses
+            designed to answer: what is changing, why it matters, and what leaders
+            should do next?
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div>
+              <span class="tag">Insurance</span>
+              <h3>The Future of Embedded Insurance</h3>
+              <p>
+                A strategic view of distribution models across home, auto, renters,
+                and specialty insurance ecosystems.
+              </p>
+            </div>
+            <div class="card-footer">View research →</div>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="tag">Mobility</span>
+              <h3>Mapping the Mobility Intelligence Value Chain</h3>
+              <p>
+                A breakdown of public, private, and consumer mobility data markets
+                and where durable advantage may emerge.
+              </p>
+            </div>
+            <div class="card-footer">View research →</div>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="tag">AI</span>
+              <h3>Agentic Commerce and the Next Lead Marketplace</h3>
+              <p>
+                How AI-native search and browsing agents could reshape acquisition,
+                lead generation, and digital distribution.
+              </p>
+            </div>
+            <div class="card-footer">View research →</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <div>
+          <div class="eyebrow">About Me</div>
+          <h2>Strategy thinker focused on growth, innovation, and executive storytelling.</h2>
+          <p class="about-text">
+            I’m Ankith Hiremath, a finance-trained strategist interested in how
+            companies navigate emerging technologies, changing markets, and new
+            growth opportunities. My work focuses on deep research, market
+            synthesis, strategic recommendations, and translating ambiguity into
+            clear executive narratives.
+          </p>
+        </div>
+
+        <aside class="profile-card" id="contact">
+          <h3>Let’s connect.</h3>
+          <p>
+            Interested in strategy, corporate development, emerging technology,
+            insurance, mobility, and financial services.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:your.email@example.com">Email</a>
+            <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Ankith Hiremath. Independent strategy research and analysis.
+    </div>
+  </footer>
+</body>
+</html>
