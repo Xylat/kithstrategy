@@ -1,4 +1,4 @@
-  <style>
+
     :root {
       --black: #090b0b;
       --ink: #151514;
@@ -478,4 +478,58 @@
         gap: 18px;
       }
     }
-  </style>
+.article-page {
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  padding: 90px 0;
+}
+
+.article-container {
+  max-width: 760px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 36px;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.article-page h1 {
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  line-height: .95;
+  margin-bottom: 22px;
+}
+
+.article-meta {
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+
+.article-lead {
+  font-size: 1.35rem;
+  line-height: 1.55;
+  color: #4f4944;
+  margin-bottom: 42px;
+}
+
+.article-page hr {
+  border: 0;
+  border-top: 1px solid var(--line-light);
+  margin: 42px 0;
+}
+
+.article-page h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  letter-spacing: -.04em;
+  margin: 42px 0 14px;
+}
+
+.article-page p {
+  font-size: 1.05rem;
+  color: #4f4944;
+  margin-bottom: 20px;
+}
+
